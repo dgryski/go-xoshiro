@@ -4,6 +4,10 @@
 Translated from
 
 	http://xoshiro.di.unimi.it/xoshiro256starstar.c
+
+	Scrambled Linear Pseudorandom Number Generators
+	David Blackman, Sebastiano Vigna
+	https://arxiv.org/abs/1805.01407
 */
 package xoshiro
 
