@@ -11,14 +11,12 @@ Translated from
 */
 package xoshiro
 
+import "math/bits"
+
 // State is the state for the random number generator
 type State struct {
 	// struct instead of array due to https://github.com/golang/go/issues/15925
 	s0, s1, s2, s3 uint64
-}
-
-func rotl(x uint64, k uint) uint64 {
-	return (x << k) | (x >> (64 - k))
 }
 
 // New returns a new RNG with the state constructed from seed
@@ -34,7 +32,7 @@ func NewFromState(seed [4]uint64) *State {
 
 // Next returns the next integer in the sequence
 func (s *State) Next() uint64 {
-	r := rotl(s.s1*5, 7) * 9
+	r := bits.RotateLeft64(s.s1*5, 7) * 9
 
 	t := s.s1 << 17
 
@@ -45,7 +43,7 @@ func (s *State) Next() uint64 {
 
 	s.s2 ^= t
 
-	s.s3 = rotl(s.s3, 45)
+	s.s3 = bits.RotateLeft64(s.s3, 45)
 
 	return r
 }
