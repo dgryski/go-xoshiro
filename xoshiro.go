@@ -8,6 +8,8 @@ Translated from
 	Scrambled Linear Pseudorandom Number Generators
 	David Blackman, Sebastiano Vigna
 	https://arxiv.org/abs/1805.01407
+
+	http://www.pcg-random.org/posts/a-quick-look-at-xoshiro256.html
 */
 package xoshiro
 
